@@ -1,14 +1,24 @@
 {
   "name": "pull-to-refresh-vue",
   "version": "0.1.0",
-  "private": true,
   "main": "dist/pull-to-refresh-vue.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "build-lib": "vue-cli-service build --target lib --name pull-to-refresh-vue src/index.js"
+    "build": "vue-cli-service build --target lib --name pull-to-refresh-vue src/index.js"
   },
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wlsgml0229/PullToRefreshVue"
+  },
+  "keywords": [
+    "pulltorefresh",
+    "Pull",
+    "Refresh",
+    "Vue.js"
+  ],
+  "author": "Jinhee Kim",
+  "license": "MIT",
   "dependencies": {
     "bootstrap-icons": "^1.10.5",
     "core-js": "^3.8.3",
