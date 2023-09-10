@@ -1,12 +1,6 @@
 {
   "singleQuote": true,
-  "useTabs": false,
-  "tabWidth": 0,
-  "printWidth": 120,
-  "parser": "babel",
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
-  "trailingComma": "none",
   "semi": true,
-  "noEmptyLines": true
+  "useTabs": false,
+  "tabWidth": 2
 }
