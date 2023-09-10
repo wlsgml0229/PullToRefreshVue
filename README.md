@@ -20,6 +20,6 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 # PullToRefreshVue
+
+<img width="80%" alt="pulltorefresh introduce gif" src="https://github.com/wlsgml0229/PullToRefreshVue/assets/62745249/b4d36cff-1add-45ec-b0a2-0f7c204489cb.gif" />
