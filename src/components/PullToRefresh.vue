@@ -78,7 +78,6 @@ export default {
       const deltaY = event.changedTouches[0].clientY - this.startY;
       if (deltaY >= 90) {
         this.animationHeight(90);
-        this.$refs.pullToRefreshContainer.scrollTo(0, 0);
         this.isRefresh = true;
         this.$emit('refresh');
       } else {
