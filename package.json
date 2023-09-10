@@ -2,7 +2,7 @@
   "name": "pull-to-refresh-vue",
   "version": "0.1.0",
   "private": true,
-  "main": "dist/js/chunk-vendors.94e4e240.js",
+  "main": "dist/pull-to-refresh-vue.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
