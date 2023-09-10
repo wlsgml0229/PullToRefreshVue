@@ -20,6 +20,10 @@
         </div>
         <div class='box-wrapper'>
         </div>
+        <div class='box-wrapper'>
+        </div>
+        <div class='box-wrapper'>
+        </div>
       </main>
     </section>
   </PullToRefresh>
@@ -74,7 +78,7 @@ header {
 }
 
 main {
-  padding: 40px 30px;
+  padding: 40px 30px 100px 30px;
 }
 
 main > h1 {
