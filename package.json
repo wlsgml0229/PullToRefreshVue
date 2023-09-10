@@ -1,13 +1,13 @@
 {
   "name": "pull-to-refresh-vue-js",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/pull-to-refresh-vue-js.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
     "build": "vue-cli-service build --target lib --name pull-to-refresh-vue-js src/index.js"
   },
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/wlsgml0229/PullToRefreshVue"
   },
