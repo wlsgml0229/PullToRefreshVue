@@ -2,13 +2,17 @@
   "name": "pull-to-refresh-vue",
   "version": "0.1.0",
   "private": true,
+  "main": "dist/js/chunk-vendors.94e4e240.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "build-lib": "vue-cli-service build --target lib --name pull-to-refresh-vue src/index.js"
   },
   "dependencies": {
+    "bootstrap-icons": "^1.10.5",
     "core-js": "^3.8.3",
+    "prettier": "^3.0.3",
     "vue": "^3.2.13"
   },
   "devDependencies": {
