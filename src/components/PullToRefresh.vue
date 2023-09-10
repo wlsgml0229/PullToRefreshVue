@@ -1,16 +1,16 @@
 <template>
-  <div class='pull-to-refresh-wrapper' :class="{ 'loading-wrapper': isRefresh }">
+  <div class='pull-to-refresh-vue-wrapper' :class="{ 'pull-to-refresh-vue-loading-wrapper': isRefresh }">
     <div
-      class='pull-to-refresh-container'
+      class='pull-to-refresh-vue-container'
       ref='pullToRefreshContainer'
       @touchstart='handleTouchStart'
       @touchmove='handleTouchMove'
       @touchend='handleTouchEnd'
       :style='`transform: translateY(${this.refreshHeight}px)`'
     >
-      <div class='refresh-box' :style='{color: color}'>
+      <div class='pull-to-refresh-vue-box' :style='{color: color}'>
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' :fill='color'
-             class='bi bi-arrow-clockwise refresh-indicator' viewBox='0 0 16 16' :class='{ loading: isRefresh }'
+             class='bi bi-arrow-clockwise pull-to-refresh-vue-indicator' viewBox='0 0 16 16' :class='{"pull-to-refresh-vue-loading": isRefresh}'
              :style='{ transform: `rotate(${refreshIndicatorRotation}deg)` }'>
           <path fill-rule='evenodd' d='M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z' />
           <path
@@ -123,18 +123,18 @@ export default {
 
 };
 </script>
-<style scoped>
-.pull-to-refresh-wrapper {
+<style>
+.pull-to-refresh-vue-wrapper {
   overflow: hidden;
   width: 100%;
   height: 100vh;
 }
 
-.loading-wrapper {
+.pull-to-refresh-vue-loading-wrapper {
   pointer-events: none;
 }
 
-.pull-to-refresh-container {
+.pull-to-refresh-vue-container {
   scroll-behavior: smooth;
   overscroll-behavior: contain;
   height: calc(100vh + 90px);
@@ -146,7 +146,7 @@ export default {
   width: 100%;
 }
 
-.refresh-box {
+.pull-to-refresh-vue-box {
   box-sizing: border-box;
   scroll-behavior: smooth;
   height: 90px;
@@ -163,11 +163,11 @@ export default {
   flex-direction: column;
 }
 
-.refresh-indicator {
+.pull-to-refresh-vue-indicator {
   margin-bottom: 8px;
 }
 
-.refresh-indicator.loading {
+.pull-to-refresh-vue-indicator.pull-to-refresh-vue-loading {
   animation: spin 1.5s infinite linear;
 }
 
