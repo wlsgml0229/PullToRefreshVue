@@ -6,7 +6,7 @@
         @touchstart="handleTouchStart"
         @touchmove="handleTouchMove"
         @touchend="handleTouchEnd"
-        :style="`transform: translateY(${this.refreshHegiht}px)`"
+        :style="`transform: translateY(${this.refreshHeight}px)`"
     >
       <div class="refresh-box">
         <div
@@ -28,7 +28,7 @@ export default {
       items: [],
       startY: 0,
       refreshIndicatorRotation: 0,
-      refreshHegiht: 0,
+      refreshHeight: 0,
       isRefresh: false,
     };
   },
@@ -39,10 +39,14 @@ export default {
       default: false,
     },
   },
+  mounted() {
+    window.pulltorefresh = false;
+  },
   watch: {
     loading(val) {
       if (this.isRefresh && !val) {
         setTimeout(() => {
+          document.body.style.overflow = 'auto';
           return this.animationHeight(0);
         }, 1000);
       }
@@ -64,43 +68,41 @@ export default {
       this.doRefresh(event);
     },
     handleTouchEnd(event) {
-      if (this.blockingPullStatus()) return;
+      if (this.isRefresh) return;
       const deltaY = event.changedTouches[0].clientY - this.startY;
-      //높이 90이상당기고 스크롤탑이 0일떄
       if (deltaY >= 90) {
-        this.$emit('refresh');
-        this.isRefresh = true;
-        document.body.style.overflow = 'hidden';
         this.animationHeight(90);
+        this.isRefresh = true;
+        this.$emit('refresh');
       } else {
         this.animationHeight(0);
       }
       this.refreshIndicatorRotation = 0;
     },
     doRefresh(event) {
+      // 더 당겨도 150이 최대값이 되도록 설정
       const deltaY = Math.min(event.touches[0].clientY - this.startY, 150);
       if (deltaY < 0) return;
-      this.refreshHegiht = deltaY;
+      this.refreshHeight = deltaY;
       this.refreshIndicatorRotation = deltaY * 2;
     },
     animationHeight(targetHeight) {
-      if (this.blockingPullStatus()) return;
       const startTime = performance.now();
-      const startHeight = this.refreshHegiht;
+      const startHeight = this.refreshHeight;
       const animationDuration = 450;
       let animationFrameId;
       const animateHeight = (timestamp) => {
         const elapsedTime = timestamp - startTime;
+        // 이전 시작 시간을 비교해 애니메이션이 동작중인지 판단여부
         if (elapsedTime < animationDuration) {
-          this.refreshHegiht = Math.max(
+          this.refreshHeight = Math.max(
               targetHeight,
               startHeight - (startHeight / animationDuration) * elapsedTime
           );
           animationFrameId = requestAnimationFrame(animateHeight);
         } else {
-          this.refreshHegiht = targetHeight;
-          if (this.refreshHegiht === 0) {
-            document.body.style.overflow = 'auto';
+          this.refreshHeight = targetHeight;
+          if (this.refreshHeight === 0) {
             this.isRefresh = false;
           }
         }
@@ -112,14 +114,13 @@ export default {
       };
     },
   },
-  mounted() {
-    window.pulltorefresh = false;
-  },
+
 };
 </script>
 <style scoped>
 /* .pull-to-refresh-wrapper */
 .pull-to-refresh-wrapper {
+  overflow: hidden;
   scroll-behavior: smooth;
   width: 100%;
   height: 100vh;
