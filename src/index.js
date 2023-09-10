@@ -1,9 +1,9 @@
-import PullToRefreshVue from "./components/PullToRefresh.vue";
+import PullToRefreshVueJs from "./components/PullToRefresh.vue";
 
 export function install(Vue) {
   if (install.installed) return;
   install.installed = true;
-  Vue.component("PullToRefreshVue", PullToRefreshVue);
+  Vue.component("PullToRefreshVueJs", PullToRefreshVueJs);
 }
 
 const plugin = {
@@ -20,4 +20,4 @@ if (GlobalVue) {
   GlobalVue.use(plugin);
 }
 
-export default PullToRefreshVue;
+export default PullToRefreshVueJs;
