@@ -2,7 +2,6 @@
   "name": "pull-to-refresh-vue-js",
   "version": "0.1.2",
   "main": "dist/pull-to-refresh-vue-js.common.js",
-  "module": "dist/pull-to-refresh-vue-js.esm.js",
   "scripts": {
     "serve": "vue-cli-service serve",
     "lint": "vue-cli-service lint",
