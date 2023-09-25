@@ -1,6 +1,6 @@
 {
   "name": "pull-to-refresh-vue-js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "dist/pull-to-refresh-vue-js.common.js",
   "scripts": {
     "serve": "vue-cli-service serve",
